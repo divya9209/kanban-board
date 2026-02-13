@@ -1,17 +1,9 @@
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 import Login from "./pages/Login";
 import Board from "./pages/Board";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    if (user) {
-      setIsLoggedIn(true);
-    }
-  }, []);
+  const isLoggedIn = !!localStorage.getItem("user");
 
   return (
     <HashRouter>
@@ -19,13 +11,13 @@ function App() {
         <Route
           path="/"
           element={
-            isLoggedIn ? <Navigate to="/board" /> : <Login />
+            isLoggedIn ? <Navigate to="/board" replace /> : <Login />
           }
         />
         <Route
           path="/board"
           element={
-            isLoggedIn ? <Board /> : <Navigate to="/" />
+            isLoggedIn ? <Board /> : <Navigate to="/" replace />
           }
         />
       </Routes>
