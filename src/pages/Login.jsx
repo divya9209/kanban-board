@@ -5,14 +5,14 @@ function Login() {
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
+const handleLogin = () => {
   if (username.trim() === "") {
     alert("Please enter username");
     return;
   }
 
   localStorage.setItem("user", username);
-  window.location.href = "/board";
+  navigate("/board");
 };
 
   return (
