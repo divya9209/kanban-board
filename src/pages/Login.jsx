@@ -12,7 +12,9 @@ function Login() {
     }
 
     localStorage.setItem("user", username);
-    navigate("/board", { replace: true });
+
+    // important: use navigate, not window.location
+    navigate("/board");
   };
 
   return (
