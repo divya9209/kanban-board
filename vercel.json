@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/((?!assets|vite.svg).*)", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/" }
   ]
 }

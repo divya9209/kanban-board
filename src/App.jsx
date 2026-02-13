@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+
 import Login from "./pages/Login";
 import Board from "./pages/Board";
 
@@ -6,7 +7,8 @@ function App() {
   const isLoggedIn = !!localStorage.getItem("user");
 
   return (
-    <BrowserRouter>
+    <HashRouter>
+
       <Routes>
         <Route
           path="/"
@@ -21,7 +23,8 @@ function App() {
           }
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
+
   );
 }
 
