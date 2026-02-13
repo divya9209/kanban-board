@@ -1,19 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
-const handleLogin = () => {
-  if (username.trim() === "") {
-    alert("Please enter username");
-    return;
-  }
+  // If already logged in, redirect to board
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      navigate("/board", { replace: true });
+    }
+  }, [navigate]);
 
-  localStorage.setItem("user", username);
-  navigate("/board");
-};
+  const handleLogin = () => {
+    if (username.trim() === "") {
+      alert("Please enter username");
+      return;
+    }
+
+    localStorage.setItem("user", username);
+    navigate("/board", { replace: true });
+  };
 
   return (
     <div className="h-screen flex items-center justify-center bg-gray-100">
