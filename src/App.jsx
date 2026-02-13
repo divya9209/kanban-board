@@ -20,7 +20,6 @@ function App() {
             isLoggedIn ? <Board /> : <Navigate to="/" replace />
           }
         />
-        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,17 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
-
-  // If already logged in, redirect to board
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    if (user) {
-      navigate("/board", { replace: true });
-    }
-  }, [navigate]);
 
   const handleLogin = () => {
     if (username.trim() === "") {
